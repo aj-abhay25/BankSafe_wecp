@@ -11,6 +11,6 @@ public interface CustomerDAO {
     Customers getCustomerById(int customerId);
     void updateCustomer(Customers customers);
     void deleteCustomer(int customerId);
-    List<Customers> getAllCustomers();
+    // List<Customers> getAllCustomers();
     CustomerAccountInfo getCustomerAccountInfo(int customerId);
 }

@@ -11,5 +11,6 @@ public interface AccountDAO {
     void updateAccount(Accounts accounts);
     void deleteAccount(int accountId);
     List<Accounts> getAllAccounts();
+    List<Accounts> getAllAccountsByCustomer(int customer_id);
     
 }
