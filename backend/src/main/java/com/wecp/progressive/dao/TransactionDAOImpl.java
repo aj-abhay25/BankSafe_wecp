@@ -2,13 +2,19 @@ package com.wecp.progressive.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.wecp.progressive.dao.TransactionDAO;
 import com.wecp.progressive.entity.Transactions;
 
 public class TransactionDAOImpl implements TransactionDAO{
+    private TransactionDAO transactionDAO;
+    
+    public TransactionDAOImpl() {
+        this.transactionDAO = transactionDAO;
+    }
 
     @Override
     public int addTransaction(Transactions transaction) {
+        int generatedID=-1;
         return -1;
     }
 
@@ -29,7 +35,8 @@ public class TransactionDAOImpl implements TransactionDAO{
 
     @Override
     public List<Transactions> getAllTransactions() {
-        return new ArrayList<>();
+        List<Transactions> transactions=new ArrayList<>();
+        return transactions;
     }
 
 

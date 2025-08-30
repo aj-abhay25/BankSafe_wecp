@@ -7,14 +7,13 @@ public class Transactions {
     private double amount;
     private String transactionType;
     private Date transactionDate;
-    public Transactions() {
-    }
-    public Transactions(int transactionId, int accountId, double amount, String transactionType, Date transactionDate) {
+    
+    public Transactions(int transactionId, int accountId, double amount, Date transactionDate, String transactionType) {
         this.transactionId = transactionId;
         this.accountId = accountId;
         this.amount = amount;
+        this.transactionDate=transactionDate;
         this.transactionType = transactionType;
-        this.transactionDate = transactionDate;
     }
     public int getTransactionId() {
         return transactionId;
@@ -45,5 +44,5 @@ public class Transactions {
     }
     public void setTransactionDate(Date transactionDate) {
         this.transactionDate = transactionDate;
-    };
+    }
 }

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DatabaseConnectionManager {
-    private static Properties properties = new Properties();
+    private static final Properties properties = new Properties();
     static{
         loadProperties();
     }

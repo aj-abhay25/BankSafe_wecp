@@ -1,18 +1,28 @@
 package com.wecp.progressive.dao;
 
+import com.wecp.progressive.dao.AccountDAO;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import com.wecp.progressive.entity.Accounts;
 
 public class AccountDAOImpl implements AccountDAO{
+
+    
+    
+    public AccountDAOImpl() {
+        
+    }
+
     public List<Accounts>  getAllAccounts(){
         return null;
     }
 
     @Override
     public int addAccount(Accounts accounts) {
-        return -1;
+        int generatedID=-1;
+        return generatedID;
     }
 
     @Override
@@ -32,6 +42,7 @@ public class AccountDAOImpl implements AccountDAO{
 
     @Override
     public List<Accounts> getAllAccountsByCustomer(int customer_id) {
-        return new ArrayList<>();
+        List<Accounts> accounts = new ArrayList<>();
+        return accounts;
     }
 }
