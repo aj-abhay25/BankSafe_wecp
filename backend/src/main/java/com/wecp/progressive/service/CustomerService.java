@@ -5,6 +5,9 @@ import com.wecp.progressive.entity.Customers;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public interface CustomerService {
     List<Customers> getAllCustomers() throws SQLException;
     int addCustomer(Customers customers) throws SQLException;

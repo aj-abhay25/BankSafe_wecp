@@ -1,30 +1,48 @@
 package com.wecp.progressive.controller;
 
 import com.wecp.progressive.entity.Loan;
+import com.wecp.progressive.service.LoanService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
-
+@RestController
+@RequestMapping("/loans")
 public class LoanController {
-
-    public ResponseEntity<List<Loan>> getAllLoans() {
-        return null;
+    @Autowired
+    private  LoanService loanService;
+    
+    
+    public LoanController(LoanService loanService) {
+        this.loanService = loanService;
+    }
+    @GetMapping
+    public ResponseEntity<List<Loan>> getAllLoans() throws SQLException {
+        return new ResponseEntity<>(loanService.getAllLoans(),HttpStatus.OK);
     }
 
-    public ResponseEntity<Loan> getLoanById(Long id) {
-        return null;
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<Loan> getLoanById(@PathVariable Long id) {
+        return new ResponseEntity<>(loanService.getLoanById(id),HttpStatus.OK);
+        
     }
-
-    public ResponseEntity<Loan> createLoan(Loan loan) {
-        return null;
+    @PostMapping
+    public ResponseEntity<Loan> createLoan(@RequestBody Loan loan) {
+        return new ResponseEntity<>(loanService.createLoan(loan),HttpStatus.CREATED);
     }
-
-    public ResponseEntity<Void> updateLoan(Long id, Loan loan) {
-        return null;
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateLoan(@PathVariable Long id,@RequestBody Loan loan) {
+        loanService.updateLoan(id,loan);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
-
-    public ResponseEntity<Void> deleteLoan(Long id) {
-        return null;
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteLoan(@PathVariable Long id) {
+        loanService.deleteLoan(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
