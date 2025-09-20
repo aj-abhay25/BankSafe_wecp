@@ -1,0 +1,20 @@
+<form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="transaction_id">Account ID:</label>
+        <input type="number" id="accountId" formControlName="accountId" />
+    </div>
+    <div class="form-group">
+        <label for="transaction_id">Transaction Type:</label>
+        <input type="number" id="transactionType" formControlName="transactionType" />
+    </div>
+    <div class="form-group">
+        <label for="transaction_id">Transaction Amount:</label>
+        <input type="number" id="amount" formControlName="amount" />
+    </div>
+    <div class="form-group">
+        <label for="transactionDate">Transaction Date:</label>
+        <input type="number" id="transactionDate" formControlName="transactionDate" />
+    </div>
+
+    <button type="submit" [disabled]="!transactionForm.valid">Submit</button>
+</form>

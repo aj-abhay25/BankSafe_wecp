@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<form (ngSubmit)="onSubmit()" [formGroup]="accountForm" class="user-form">
+    <div class="form-group">
+        <label for="customer">Customer:</label>
+        <select formControlName="customer">
+            <option [ngValue]="null">Select a Customer</option>
+            <option *ngFor="let customer of customers$ | async" [ngValue]="customer">
+                {{ customer.name }}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="balance">Balance:</label>
+        <input type="text" id="balance" formControlName="balance" class="form-control" />
+    </div>
+
+    <div *ngIf="accountForm.controls['customer'].invalid && isFormSubmitted" class="error">
+        Customer is required.
+    </div>
+    <div *ngIf="accountForm.controls['balance'].invalid && isFormSubmitted" class="error">
+        Balance is required and must be a number.
+    </div>
+
+
+    <button type="submit" class="btn-submit">Create Account</button>
+
+    <ng-container>
+        <div *ngIf="accountError$ | async as error" class="error">
+            {{ error }}
+        </div>
+        <div *ngIf="accountSuccess$ | async as msg" class="success">
+            {{ msg }}
+        </div>
+    </ng-container>
+
+    <a routerLink="/bank" class="task-list" class="task-list">Dashboard</a>
+</form>

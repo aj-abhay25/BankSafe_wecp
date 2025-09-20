@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+
+<div class="table-container" *ngIf="role !== 'USER'">
+
+    <h2>Customers</h2>
+    <table class="customer-table">
+        <thead>
+            <tr>
+                <th>Customer #</th>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customers$ | async">
+
+                <td>{{ customer.customerId}}</td>
+                <td>{{ customer.name }}</td>
+                <td>{{ customer.email }}</td>
+
+                <td> <button class="task-list" (click)="editCustomer(customer)">Edit</button>
+                </td>
+                <td> <button (click)="deteteCustomer(customer)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-container">
+
+    <h2>Accounts</h2>
+    <table class="customer-table">
+        <thead>
+            <tr>
+                <th>Account Id</th>
+                <th>Customer ID</th>
+                <th>Balance</th>
+
+                <th *ngIf="role !== 'USER'">Edit</th>
+                <th *ngIf="role !== 'USER'">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let account of accounts$ | async">
+                <td>{{ account.accountId}}</td>
+                <td>{{ account.customer.customerId }}</td>
+                <td>{{ account.balance }}</td>
+                <td *ngIf="role !== 'USER'"> <button class="task-list" (click)="editAccount(account)">Edit</button>
+                </td>
+                <td *ngIf="role !== 'USER'"> <button (click)="deteteAccount(account)">Delete</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-container">
+
+    <h2>Transactions</h2>
+    <table class="customer-table">
+        <thead>
+            <tr>
+
+                <th>Account ID</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transactions$ | async">
+
+                <td>{{ transaction.accounts?.accountId }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.transactionDate | date:'longDate'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

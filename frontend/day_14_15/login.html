@@ -1,10 +1,38 @@
-<!-- Create login form Username and Password fields in login form
-    where input fields has following cofigurations:
-     - username will have  loginUsername id 
-     - password field will have loginPassword id
+<!DOCTYPE html>
+<html lang="en">
 
-    validate: 
-    -loginUsername: should not be empty
-    -loginPassword: should not be empty
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
 
--->
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginUsername">Username:</label>
+                        <input type="text" class="form-control" id="loginUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password:</label>
+                        <input type="password" class="form-control" id="loginPassword" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/validation.js"></script>
+
+</body>
+</html>
+
+</html>
